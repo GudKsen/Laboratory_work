@@ -1,26 +1,12 @@
-targets = main.bin 
-CC = gcc
-C_OPTS = -std=gnu11 -g -Wall  -Wextra -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -I./src 
-
-all: clean prep compile run
-
 clean:
 	rm -rf dist
 prep:
 	mkdir dist
-compile: main.bin test.bin
-
-main.bin: src/main.c
-	$(CC) $(C_OPTS) $< -o ./dist/$@
-test.bin: test/test.c
-	$(CC) $(C_OPTS) $< -o ./dist/$@
-test: clean prep compile
-	./dist/test.bin
-run: clean prep compile
-	./dist/main.bin
-doxygen:
-	doxygen Doxyfile
-format: #TODO
-
-tidy: # TODO
-
+compile: prep
+	gcc src/task1.c -o dist/main1.bin -g
+	gcc src/task2.c -o dist/main2.bin -g
+	gcc src/task3.c -o dist/main3.bin -g
+	gcc src/task4.c -o dist/main4.bin -g
+	gcc src/task5.c -o dist/main5.bin -g
+	gcc src/task6.c -o dist/main6.bin -g
+all: clean compile
