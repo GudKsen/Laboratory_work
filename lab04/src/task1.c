@@ -1,7 +1,7 @@
 int main() {
 #define pi 3.14
 #define r 2
-	char choice;
+	char choice='s';
 	double res;
 	switch (choice) {                  //оператор для выбора
 	case 'l':                          //если выбор l(длина окружности)
