@@ -18,7 +18,7 @@ int number_of_pairs(int n, ...);
 int main()
 {   
     int count = 0;
-    count = number_of_pairs(10, 17, 21, 45, 35, 56, 78, 45, 34, 56, 56);
+    count = number_of_pairs(10, 17, 69, 40, 20, 50, 51, 86, 87, 20, 14);
     return 0;
 }
 
