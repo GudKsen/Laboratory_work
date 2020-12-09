@@ -18,4 +18,9 @@ compile: prep
 	gcc src/task4-5.c -o dist/main4-5.bin -g
 	gcc src/task5-5.c -o dist/main5-5.bin -g
 	
-all: clean compile
+	
+all: 
+	clean compile
+
+doxygen:
+	doxygen Doxyfile
