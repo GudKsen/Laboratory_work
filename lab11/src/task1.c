@@ -12,21 +12,13 @@ int main()
 		*(num_arr + i) = *(arr + i);
 	}
 
-	int count = 0;
-	for (int j = 0; j < N; j++) {
-		for (int i = 0; i < N; i++) {
-			if (*(num_arr + j) == *(arr + i)) {
-				count++;
-			}
-		}
-		*(repeat + j) = count;
-		count = 0;
-	}
-
 	
-
+	
+	find_repeat(N, &num_arr, &arr, &repeat);
+	
 	
 	int* result_arr = (int*)malloc((N + N) * sizeof(int));
+	
 	int i = 0;
 		for (int j = 0; j < N; j++) {
 			    *(result_arr + i) = *(arr + j);
@@ -34,5 +26,6 @@ int main()
 				i += 2;
 		}
     
+	free(result_arr);
     return 0;
 }

@@ -1,6 +1,4 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#include<lib.h>
 int main() {
 #define STR 5
 #define COL 5
@@ -14,7 +12,7 @@ int main() {
 		}
 	}
 
-	
+	int* line_arr = (int*)malloc(STR * COL * sizeof(int));
 
 
 	for (int i = 0; i < STR; i++) {
@@ -24,24 +22,19 @@ int main() {
 			}
 		}
 	}
+
+
 	int* res = (int*)malloc(count * sizeof(int));
-	for (int i = 0; i < STR; i++) {
-		for (int j = 0; j < COL; j++) {
-			if (i == j) {
-				*(res+j) = *(*(arr+i)+j);
-			}
+
+	for(int i = 0; i < STR; i++) {
+		for(int j = 0; j < COL; j++) {
+			*(line_arr + i * STR + j) = *(*(arr + i) + j);
 		}
 	}
 	
-	for(int i = 0; i < count; i++) {
-		
-			if(*(res + i) < *(res + i + 1)){
-				int tmp = *(res + i);
-				*(res + i) = *(res + i + 1);
-				*(res + i + 1) = tmp;
-			}
-		
-	}
+	main_diagonal(STR, COL, &line_arr, &res);
 	
+	sort_array(count, res);
+	free(res);
 	return 0;
 }
