@@ -7,7 +7,7 @@
  task1
 */
 void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]) {
-    int count = 0;
+    int *count = 0;
     for (int j = 0; j < size; j++) {
 		for (int i = 0; i < size; i++) {
 			if (*(num_arr + j) == *(arr + i)) {
@@ -19,23 +19,29 @@ void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]) {
 	}
 }
 
-int create_array(int size, int arr[]){
+int create_array(int size, int *arr[]){
     for (int i = 0; i < size; i++) {
 		    *(arr + i) = rand() % (20 + 20 - 1) - 20;
 	}
-    return arr;
+    return **arr;
 }
 
+void create_array_2(int size, float *arr){                                                                                                 
+    for (int i = 0; i < size; i++) {
+		    *(arr + i) =  (float) rand() / (20 + 20 - 1) - 20; 
+	}
+}
+                       
 int sort_array(int size, int arr[]){
     for(int i = 0; i < size; i++) {
-		if(*(arr + i) < *(arr + i + 1)){
+		if(*(arr + i) < *(arr + i + 1)){                                                                                                               
 				int tmp = *(arr + i);
 				*(arr + i) = *(arr + i + 1);
 				*(arr + i + 1) = tmp;
 			}
 		
 	}
-    return arr;
+    return *arr;
 }
 
 /**
@@ -86,7 +92,7 @@ void index_of_interval_positive_numbers(int size, int arr[], int *start_index_ma
         if(start_index != -1 && end_index != -1){
             count = end_index - start_index;
             *count_of_intervals++;
-            if(count > max_count){
+            if(count > *max_count){
                 *max_count = count;
                 *start_index_max = start_index;
                 *end_index_max = end_index;

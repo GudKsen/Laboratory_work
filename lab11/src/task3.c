@@ -4,7 +4,7 @@ int main() {
 	float arr[N2];
 	int count_of_intervals = 0, start_index_max, end_index_max, max_count = 0;
 	
-    create_array(N2, arr);
+    create_array_2(N2, &arr);
     
 
     interval_increasing_numbers(N2, arr, &start_index_max, &end_index_max, &count_of_intervals, &max_count);
