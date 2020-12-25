@@ -6,12 +6,12 @@ int main() {
     char copy_of_symbol = SYMBOL;
     char* string = NULL;                                           //copy of TEXT
     int count_of_words = 0;      
-    strcpy(string, TEXT);
+    strcpy(&string, TEXT);
     char* tmp_string = NULL; 
     
-    tmp_string = strtok(string, &copy_of_symbol);
+    tmp_string = strtok(&string, &copy_of_symbol);
     while(tmp_string != NULL) {                      //count of words
-        tmp_string = strtok(tmp_string, &copy_of_symbol);
+        tmp_string = strtok(tmp_string, copy_of_symbol);
         count_of_words++;
     }
     

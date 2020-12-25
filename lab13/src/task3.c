@@ -4,7 +4,7 @@ int main() {
 #define TEXT_OF_SYMBOLS "kljbggd 856 4g55034 hgh,,.rjhg,s"
 char* unique_array = NULL;
 char* copy_of_text = NULL;
-strcpy(copy_of_text, TEXT_OF_SYMBOLS);
+strcpy(&copy_of_text, TEXT_OF_SYMBOLS);
 int size_symbols = strlen(TEXT_OF_SYMBOLS);
     for(int i = 0; i < size_symbols; i++) {
         for(int j = i; j < size_symbols; j++) {
