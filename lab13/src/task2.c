@@ -60,33 +60,50 @@ int main() {
    strcpy(string_of_surnames, TEXT_OF_SURNAMES);
    char * part1 = strtok(string_of_surnames, " ,.");
    char array_of_surnames[count_of_surnames][20];
-   int i = 1;
-   strcpy(array_of_surnames[0], part1);
+   int i = 0;
+   //strcpy(array_of_surnames[0], part1);
    while(part1) {
-       part1 = strtok(NULL, " ,.");
+       
        strcpy(array_of_surnames[i], part1);
+       part1 = strtok(NULL, " ,.");
        i++;
    }
 
 
 
-    char* result_surnames[5];
-    int g = 0;
+    char result_surnames[5][20];
+   /* int g = 0;
     for(int i = 0; i < count_of_surnames; i++) {
-        result_surnames[g] = array_of_surnames[i];
+        strcpy(result_surnames[g], array_of_surnames[i]);
         g++;
-    }
+    }*/
 
-    int flag = 0;
+    /*int flag = 0;
     for(int i = 0; i < size_text; i++) {
         for(int j = i; j < size_text; j++) {
-            if(strcmp(&result_surnames[i], &array_of_surnames[j]) && flag == 0) {
-                result_surnames[i] = array_of_surnames[j];
+            if(strcmp(result_surnames[i], array_of_surnames[j]) && flag == 0) {
+                strcpy(result_surnames[i], array_of_surnames[j]);
                 flag++;
             }
         }
         flag = 0;
+    }*/
+//int k;
+    for(int i = 0; i < count_of_surnames; i++) {
+        for(int j = i; j < count_of_surnames; j++) {
+            for(int k = 0; k < i; k++) {
+                if(strcmp(result_surnames[k], array_of_surnames[j])) {
+                
+                }
+            
+                else {
+                    strcpy(result_surnames[i], array_of_surnames[j]);
+                    
+                }
+            }
+        }
     }
+
 
     return 0;
 

@@ -46,14 +46,12 @@ strcpy(string, TEXT);
     char *tmp1 = strtok(string, " ,.");
     
     char array_of_words[count_of_words][255];
-    int i = 1;
-    strcpy(array_of_words[0], tmp1);
+    int i = 0;
+    //strcpy(array_of_words[0], tmp1);
     
             while(tmp1) {
-            
-            tmp1 = strtok(NULL, " ,.");
-           
             strcpy(array_of_words[i], tmp1);
+            tmp1 = strtok(NULL, " ,.");
             i++;
             }
         
