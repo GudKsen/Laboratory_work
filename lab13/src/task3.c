@@ -9,7 +9,7 @@ int size_symbols = strlen(TEXT_OF_SYMBOLS);
     for(int i = 0; i < size_symbols; i++) {
         for(int j = i; j < size_symbols; j++) {
             for(int k = 0; k < i; k++) {
-                if(strcmp(&unique_array[k], &copy_of_text[j])) {
+                if(unique_array[k] == copy_of_text[j]) {
                     break;
                 }
                 if(k == i){
