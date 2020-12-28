@@ -19,11 +19,11 @@ void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]) {
 	}
 }
 
-int create_array(int size, int *arr[]){
+int create_array(int size, int arr[]){
     for (int i = 0; i < size; i++) {
 		    *(arr + i) = rand() % (20 + 20 - 1) - 20;
 	}
-    return **arr;
+    return *arr;
 }
 
 void create_array_2(int size, float *arr){                                                                                                 

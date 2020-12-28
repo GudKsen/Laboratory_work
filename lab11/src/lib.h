@@ -6,7 +6,7 @@
 void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]);
 
 int sort_array(int size, int arr[]);
-int create_array(int size, int *arr[]);
+int create_array(int size, int arr[]);
 void create_array_2(int size, float arr[]);
 /**
  * Отриманння індексів - меж інтервалу, у якому сума елементів максимальна
