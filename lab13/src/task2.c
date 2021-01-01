@@ -1,46 +1,22 @@
 #include<lib.h>
 
-int main() {
-   /* #define TEXT_OF_SURNAMES "ivanov,petrov,ivanov"
-    #define SYMBOL_SURNAMES ","
-    int size_text_of_surnames = strlen(TEXT_OF_SURNAMES);
-    char* string_of_surnames[size_text_of_surnames];
-    strcpy(string_of_surnames, &TEXT_OF_SURNAMES);
-    char* symbol_between_surnames = NULL;
-    symbol_between_surnames = SYMBOL_SURNAMES;
-    char* array_of_surnames[20];
-    char* temp_string;
-    temp_string = strtok(string_of_surnames, symbol_between_surnames);
-    int size_text = strlen(TEXT_OF_SURNAMES);
-    
-    int count_of_surnames = 0;
+/**
+ * @file task2.c
+ *
+ * видалення прізвищ, які повторюються
+*/
 
-    temp_string = strtok(string_of_surnames, symbol_between_surnames);
-    array_of_surnames[0] = *temp_string;
-    for(int i = 1; i < size_text; i++) {
-        while(temp_string != NULL) {
-            array_of_surnames[i] = *temp_string; //strcpy
-            temp_string = strtok(string_of_surnames, symbol_between_surnames);
-            count_of_surnames++;
-        }
-    }
-    char* result_surnames[5];
-    int g = 0;
-    for(int i = 0; i < count_of_surnames; i++) {
-        result_surnames[g] = array_of_surnames[i];
-        g++;
-    }
-  
-    int flag = 0;
-    for(int i = 0; i < size_text; i++) {
-        for(int j = i; j < size_text; j++) {
-            if(strcmp(&result_surnames[i], &array_of_surnames[j]) && flag == 0) {
-                result_surnames[i] = array_of_surnames[j];
-                flag++;
-            }
-        }
-        flag = 0;
-    }*/
+
+/**
+ * @param string_of_surnames копія оригінального рядка
+ * @param part зміння для запису відокремлених слів
+ * @param array_of_surnames масив прізвищ
+ * @param result_surnames результуючий масив
+ * @param part2 зміння для запису відокремлених слів(використовується для запису слів у масив)
+ * @param count_of_surnames кількість прізвищ
+ * @param size_text розмір тексту
+*/
+int main() {
 
     #define TEXT_OF_SURNAMES "ivanov,petrov,ivanov"
     #define SYMBOL_SURNAMES ","
@@ -59,52 +35,24 @@ int main() {
    
    strcpy(string_of_surnames, TEXT_OF_SURNAMES);
    char * part1 = strtok(string_of_surnames, " ,.");
-   char array_of_surnames[count_of_surnames][20];
+   char ** array_of_surnames = malloc(count_of_surnames * sizeof(char*));
+   for(int i = 0; i < count_of_surnames; i++) {
+       array_of_surnames[i] = malloc(25 * sizeof(char));
+   }
    int i = 0;
-   //strcpy(array_of_surnames[0], part1);
+  
    while(part1) {
-       
        strcpy(array_of_surnames[i], part1);
        part1 = strtok(NULL, " ,.");
        i++;
    }
-
-
-
-    char result_surnames[5][20];
-   /* int g = 0;
+    char ** result_surnames = malloc(count_of_surnames * sizeof(char*));
     for(int i = 0; i < count_of_surnames; i++) {
-        strcpy(result_surnames[g], array_of_surnames[i]);
-        g++;
-    }*/
-
-    /*int flag = 0;
-    for(int i = 0; i < size_text; i++) {
-        for(int j = i; j < size_text; j++) {
-            if(strcmp(result_surnames[i], array_of_surnames[j]) && flag == 0) {
-                strcpy(result_surnames[i], array_of_surnames[j]);
-                flag++;
-            }
-        }
-        flag = 0;
-    }*/
-//int k;
-    for(int i = 0; i < count_of_surnames; i++) {
-        for(int j = i; j < count_of_surnames; j++) {
-            for(int k = 0; k < i; k++) {
-                if(strcmp(result_surnames[k], array_of_surnames[j])) {
-                
-                }
-            
-                else {
-                    strcpy(result_surnames[i], array_of_surnames[j]);
-                    
-                }
-            }
-        }
+       result_surnames[i] = malloc(25 * sizeof(char));
     }
-
-
+    surnames(array_of_surnames, result_surnames,count_of_surnames);
+    free(result_surnames);
+    free(array_of_surnames);
     return 0;
 
 }
