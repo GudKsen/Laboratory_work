@@ -26,15 +26,18 @@ int main() {
 
 	int* res = (int*)malloc(count * sizeof(int));
 
-	for(int i = 0; i < STR; i++) {
-		for(int j = 0; j < COL; j++) {
-			*(line_arr + i * STR + j) = *(*(arr + i) + j);
+	
+	int n = 0;
+	for (int i = 0; i < STR; i++) {
+		for (int j = 0; j < COL; j++) {
+			*(line_arr + n) = *(*(arr + i) + j);
+			n++;
 		}
 	}
 	
-	main_diagonal(STR, COL, &line_arr, &res);
+	main_diagonal(STR, COL, line_arr, res);
 	
-	sort_array(count, res);
+	sort_array4(count, res);
 	free(res);
 	return 0;
 }

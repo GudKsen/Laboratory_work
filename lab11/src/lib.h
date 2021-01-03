@@ -5,7 +5,7 @@
 
 void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]);
 
-int sort_array(int size, int arr[]);
+void sort_array4(int size, int arr[]);
 int create_array(int size, int arr[]);
 void create_array_2(int size, float arr[]);
 /**
@@ -24,5 +24,5 @@ void index_of_interval_positive_numbers(int size, int arr[], int *start_index_ma
 
 void interval_increasing_numbers(int size, float arr[], int *start_index_max, int *end_index_max, int *count_of_intervals, int *max_count);
 
-void main_diagonal(int str, int col, int *line_arr[], int *res[]);
+void main_diagonal(int str, int col, int *line_arr, int *res);
 

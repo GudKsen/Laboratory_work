@@ -7,7 +7,7 @@
  task1
 */
 void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]) {
-    int *count = 0;
+    int count = 0;
     for (int j = 0; j < size; j++) {
 		for (int i = 0; i < size; i++) {
 			if (*(num_arr + j) == *(arr + i)) {
@@ -29,19 +29,22 @@ int create_array(int size, int arr[]){
 void create_array_2(int size, float *arr){                                                                                                 
     for (int i = 0; i < size; i++) {
 		    *(arr + i) =  (float) rand() / (20 + 20 - 1) - 20; 
+           
 	}
 }
                        
-int sort_array(int size, int arr[]){
-    for(int i = 0; i < size; i++) {
-		if(*(arr + i) < *(arr + i + 1)){                                                                                                               
+
+void sort_array4(int size, int arr[]){
+    for(int j = 0; j < size; j++) {
+       for(int i = 0; i < size; i++) {
+		    if(*(arr + i) < *(arr + i + 1)){                                                                                                               
 				int tmp = *(arr + i);
 				*(arr + i) = *(arr + i + 1);
 				*(arr + i + 1) = tmp;
 			}
-		
-	}
-    return *arr;
+		} 
+    }
+    
 }
 
 /**
@@ -102,16 +105,20 @@ void index_of_interval_positive_numbers(int size, int arr[], int *start_index_ma
         count = 1; }
         
         }
+        max_count += 1;
     }
 
 /**
  task4
 */
-void main_diagonal(int str, int col, int *line_arr[], int *res[]) {
-    int* matrix[str][col];
-   for(int i = 0; i < str; i++) {
+void main_diagonal(int str, int col, int *line_arr, int *res) {
+    int matrix[str][col];
+  
+   int k = 0;
+   for (int i = 0; i < str; i++) {
        for(int j = 0; j < col; j++) {
-           *(*(matrix + i) + j) = *(line_arr + i * str + j);
+           *(*(matrix + i) + j) = *(line_arr + k);
+           k++;
        }
    }
    
