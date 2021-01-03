@@ -22,7 +22,7 @@ void surnames(char **array_of_surnames, char **result_surnames, int count_of_sur
 void sort_words(char **array_of_words, int count_of_words) {
      char temp[20];
     for(int i = 0; i < count_of_words; i++) {
-        for(int j = 0; j < count_of_words + 1; j++) {
+        for(int j = 0; j < count_of_words - 1; j++) {
             if(strcmp(array_of_words[j], array_of_words[j + 1]) > 0) {
                 strcpy(temp, array_of_words[j]);
                 strcpy(array_of_words[j], array_of_words[j + 1]);
