@@ -14,7 +14,7 @@ int main()
 
 	
 	
-	find_repeat(N, &num_arr, &arr, &repeat);
+	find_repeat(N, &num_arr, arr, &repeat);
 	
 	
 	int* result_arr = (int*)malloc((N + N) * sizeof(int));

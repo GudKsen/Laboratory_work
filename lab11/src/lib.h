@@ -3,7 +3,7 @@
  @file lib.h
 */
 
-void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]);
+void find_repeat(int size, int *num_arr, int *arr, int *repeat);
 
 void sort_array4(int size, int arr[]);
 int create_array(int size, int arr[]);

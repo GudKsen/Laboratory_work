@@ -6,7 +6,7 @@
 /**
  task1
 */
-void find_repeat(int size, int *num_arr[], int *arr[], int *repeat[]) {
+void find_repeat(int size, int *num_arr, int *arr, int *repeat) {
     int count = 0;
     for (int j = 0; j < size; j++) {
 		for (int i = 0; i < size; i++) {
