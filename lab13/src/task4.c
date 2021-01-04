@@ -7,6 +7,8 @@ int main() {
     char *string_numbers = malloc(size_numbers * sizeof(char));
     strcpy(string_numbers, TEXT_WITH_NUMBERS);
     find_numbers(string_numbers, array_of_numbers, size_numbers);
+    free(string_numbers);
     free(array_of_numbers);
+    
     return 0;
 }

@@ -37,7 +37,8 @@ void find_numbers(char *string_numbers, char *array_of_numbers, int size_numbers
     for(int i = 0; i < size_numbers; i++) {
         if(isdigit(string_numbers[i])) {
             array_of_numbers[n] = string_numbers[i];
-            n++;
+            array_of_numbers[n + 1] = ' ';
+            n += 2;
         }
     }
 }

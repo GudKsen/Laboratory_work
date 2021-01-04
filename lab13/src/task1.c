@@ -28,6 +28,9 @@ int main() {
         i++;
     }
     sort_words(array_of_words, count_of_words);
+    for(int i = 0; i < count_of_words; i++) {
+        free(array_of_words[i]);
+    }
     free(array_of_words);
     return 0;
 }

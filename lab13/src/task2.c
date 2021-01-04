@@ -50,8 +50,16 @@ int main() {
     for(int i = 0; i < count_of_surnames; i++) {
        result_surnames[i] = malloc(25 * sizeof(char));
     }
+
     surnames(array_of_surnames, result_surnames,count_of_surnames);
+
+    for(int i = 0; i < count_of_surnames; i++) {
+        free(result_surnames[i]);
+    }
     free(result_surnames);
+    for(int i = 0; i < count_of_surnames; i++) {
+        free(array_of_surnames[i]);
+    }
     free(array_of_surnames);
     return 0;
 
