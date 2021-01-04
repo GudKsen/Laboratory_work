@@ -39,5 +39,6 @@ int main() {
 	
 	sort_array4(count, res);
 	free(res);
+	free(line_arr);
 	return 0;
 }
