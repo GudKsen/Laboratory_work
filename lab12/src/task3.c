@@ -1,20 +1,14 @@
 #include <lib.h>
 
 int main() {
-    char str[20];
-    FILE *file;
-    file = fopen("text.txt", "w");
-    if (file != NULL) {
-        printf("File created\n");
-        
+    char arr[N2];
+    for (int i = 0; i < N2; i++) {
+        if(stdin != ' ')
+        arr[i] = getc(stdin);
     }
-    else {
-        printf("Error\n");
+    for (int i = 0; i < N2; i++) {
+        putc(arr[i], stdout);
     }
-    
-    fclose(file);
-
-     
-
+    printf("\n");
     return 0;
 }
