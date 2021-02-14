@@ -1,5 +1,13 @@
 #include <lib.h>
+void print_number(int value) {
+    char buf[12];
+    //itoa(value, buf, 10);
+    gcvt(value, 10, buf);
+    fwrite(&buf, sizeof(char), strlen(buf) + 1, stdout);
+    
 
+    //sprintf(buf, "%d", value);
+}
 int main() {
     float arr[N2];
     printf("Input numbers: ");
@@ -9,21 +17,15 @@ int main() {
     for(int i = 0; i < N2; i++) {
         printf("%f ", arr[i]);
     }
+    int a =47;
+    print_number(a);
     return 0;
 }
 
 
 
-/*void print_number(int value) {
-    char buf[12];
-    //itoa(value, buf, 10);
-    gcvt(value, 10, buf);
-    fwrite(&buf, sizeof(char), strlen(buf) + 1, stdout);
-    
 
-    sprintf(buf, "%d", value);
-}
-*/
+
 
 
 /*int main (){
