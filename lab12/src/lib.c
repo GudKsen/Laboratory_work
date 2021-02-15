@@ -42,12 +42,24 @@ void take_numbers_from_string(char *string, float arr[]) {
     for(int i = 0; i < N2; i++) {
         arr[i] = atof(array_str[i]);
     }
-    for (int i = 0; i < N2; i++) {
+    /*for (int i = 0; i < N2; i++) {
         printf("%f ", arr[i]);
-    }
+    }*/
     for(int i = 0; i < N2; i++) {
         free(array_str[i]);
     }
     free(array_str);
 }
 
+void find_repeat(int size, int *num_arr, int *arr, int *repeat) {
+    int count = 0;
+    for (int j = 0; j < size; j++) {
+		for (int i = 0; i < size; i++) {
+			if (*(num_arr + j) == *(arr + i)) {
+				count++;
+			}
+		}
+		*(repeat + j) = count;
+		count = 0;
+	}
+}

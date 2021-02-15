@@ -1,24 +1,34 @@
 #include <lib.h>
-void print_number(int value) {
+
+void print_number(float value) {
     char buf[12];
-    //itoa(value, buf, 10);
     gcvt(value, 10, buf);
     fwrite(&buf, sizeof(char), strlen(buf) + 1, stdout);
-    
-
-    //sprintf(buf, "%d", value);
 }
+
 int main() {
+    char* string;
     float arr[N2];
+    int start_index_max, end_index_max, count_of_intervals, max_count;
     printf("Input numbers: ");
-    for (int i = 0; i < N2; i++){
-        fread(&arr[i], sizeof(float), 3, stdin);
+    fread(string, sizeof(char), 19, stdin);
+    take_numbers_from_string(string, &arr);
+    interval_increasing_numbers(N2, arr, &start_index_max, &end_index_max, &count_of_intervals, &max_count);
+    float* result_arr = malloc(max_count * sizeof(float));
+    for (int i = 0, j = start_index_max; i <= max_count && j <= end_index_max; i++, j++) {
+		result_arr[i] = arr[j];
+	}
+    printf("\n");
+    
+    printf("Result: ");
+    for(int i = 0; i <= max_count; i++) {
+        char buf[30];
+        sprintf(buf, "%f", result_arr[i]);
+        fwrite(&buf, sizeof(char), strlen(buf) + 1, stdout);
+        printf(" ");
     }
-    for(int i = 0; i < N2; i++) {
-        printf("%f ", arr[i]);
-    }
-    int a =47;
-    print_number(a);
+    printf("\n");
+    free(result_arr);
     return 0;
 }
 
@@ -36,18 +46,11 @@ int main() {
     //fwrite(&a, sizeof(a), 1, stdout);
 print_number(a);
 
-    float arr[N2];
-    //float arr[N2] = {10.2, 5.3, 6.3, 2.4, 2.5, 2.9, 1.2, 1.8, 1, 10};
-    int count_of_intervals = 0, start_index_max, end_index_max, max_count = 0;
-    printf("Input numbers: ");
-    for (int i = 0; i < N2; i++){
-        fread("%f", &arr[i]);
-    }
     return 0;
-    }*/
+    }
   
 
-/*void print_number(int value) {
+void print_number(int value) {
     char buf[12];
     //itoa(value, buf, 10);
     gcvt(value, 10, buf);
@@ -64,9 +67,9 @@ print_number(a);
      int value = strtol(buf, NULL, 10);
      fwrite(&buf, sizeof(char), strlen(buf) + 1, stdout);
     return 0;
- }*/
+ }
 
- /*int main() {
+ int main() {
     char* ff = "test.txt";
     FILE* f = fopen(ff, "w");
     char buf[100];
@@ -75,9 +78,9 @@ print_number(a);
         printf("%s", buf);
     }
     return  0;
- }*/
+ }
 
- /*
+ 
     char *s = "123jhfb";
     chsr *buf;
     int v = strol(s, &buf, 10):
