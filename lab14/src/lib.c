@@ -71,9 +71,7 @@ void read_from_file(char* name_of_start_file, char* str) {
     
     }
     
-    fgets(str, sizeof(str), file_start);  //from file to string  
-    
-    // неправильно читає строку з файла
+    fgets(str, 50, file_start);  //from file to string  
     
     printf("string after fgets: %s", str);
     

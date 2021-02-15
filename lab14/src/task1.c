@@ -13,19 +13,6 @@ int main() {
     puts("Enter the name of the resulting file: ");
     gets(name_of_result_file);
     read_from_file(name_of_start_file, str);
-    /*FILE *file_start;
-    file_start = fopen(name_of_start_file, "r");
-    
-    if(file_start == NULL) {
-        puts("Error");
-    }
-    else {
-        puts("File opened successfully!");
-    }
-
-    fgets(str, sizeof(str), file_start);  //from file to string
-    
-    fclose(file_start);*/
     puts(str);
     for(int i = 0; i < strlen(str) + 1; i++) {
         if(str[i] == '\n') {
