@@ -59,7 +59,44 @@ void show_dir(char *name_dir, int count_into) {
     
     closedir(dr);
 }
-
+void show_size(char *name_dir, int count_into, float *full_size) {
+    int count_for_direct = 0;
+    int count_for_files = 0;
+    struct dirent *de;
+    DIR *dr = opendir(name_dir);
+    struct stat st;
+    float size;
+    if(dr == NULL) {
+        printf("Could not open current directory");
+    }
+    char *string_for_name[1000];
+   
+    while((de = readdir(dr)) != NULL) {
+     if (strcmp(de -> d_name, ".") != 0 && strcmp(de -> d_name, "..") != 0) {
+         if(de -> d_type == DT_DIR) {
+            stat(de -> d_name, &st);
+            size = st.st_size;
+            *full_size += size;
+             
+             strcpy(string_for_name, name_dir);
+             strcat(string_for_name, "/");
+             strcat(string_for_name, de -> d_name);
+             
+             show_size(string_for_name, count_into + 1, full_size);
+             
+         }  else {
+           
+           stat(de -> d_name, &st);
+            size = st.st_size;
+           *full_size += size;
+           count_for_files++;
+         }
+         
+      }
+    }
+    
+    closedir(dr);
+}
 void read_from_file(char* name_of_start_file, char* str) {
     FILE *file_start;
     file_start = fopen(name_of_start_file, "r");
