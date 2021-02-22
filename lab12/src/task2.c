@@ -15,6 +15,8 @@
                       перепис елементу масиву та його частоти до результуючого масиву таким чином - перший елемнт - число, наступний - його частота}
 */
 int main() {
+    printf("Hudzhumaniuk Kseniia lab12 input/output");
+    printf("\n");
     float arr[N2];
     char string[255];
     puts("Input numbers: ");
