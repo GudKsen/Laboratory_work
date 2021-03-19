@@ -8,17 +8,14 @@ clean:
 	rm -rf dist
 prep:
 	mkdir dist
-compile: main1.bin main2.bin 
+compile: main1.bin 
 main1.bin: src/task1.c
-	$(CC) $(C_OPTS) $< -o ./dist/$@
-main2.bin: src/task2.c
 	$(CC) $(C_OPTS) $< -o ./dist/$@
 
 	
 
 run: clean prep compile
 	./dist/main1.bin
-	./dist/main2.bin
 	
 doxygen:
 	doxygen Doxyfile

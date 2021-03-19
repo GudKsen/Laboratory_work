@@ -68,8 +68,9 @@ int main() {
     char copy_of_first_name_dir[255];
     strcpy(copy_of_first_name_dir, name_dir);
     show_dir(name_dir, 0);
-    float full_size = 0;
-    show_size(name_dir, 0, &full_size);
-    printf("Size: %6.2f", full_size);
+    off_t full_size = 0;
+   // show_size(copy_of_first_name_dir, 0, &full_size);
+    //printf("Size: %6.2ld", full_size);
+    printf("\n");
     return 0;
 }
