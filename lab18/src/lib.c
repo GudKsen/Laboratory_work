@@ -1,76 +1,4 @@
 #include <lib.h>
-/*void testing_insert_func_variant(char* result_of_func) {
-	char expectation_func_variant[] = "abraTXT21kadabra";
-	if (strcmp(expectation_func_variant, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_func_variant);
-		puts(result_of_func);
-	}
-}
-
-void testing_insert_iter_variant(char* result_of_func) {
-	char expectation_iter_variant[] = "abraTXT21kadabra";
-	if (strcmp(expectation_iter_variant, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_iter_variant);
-		puts(result_of_func);
-	}
-}
-
-void testing_add_element_memcpy(char* result_of_func) {
-	char expectation_add_element_memcpy[] = "chtohelo popalo";
-	if (strcmp(expectation_add_element_memcpy, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_add_element_memcpy);
-		puts(result_of_func);
-	}
-}
-
-void testing_delete_elements(char* result_of_func) {
-	char expectation_delete_element[] = "abrara";
-	if (strcmp(expectation_delete_element, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_delete_element);
-		puts(result_of_func);
-	}
-}
-
-void testing_add_element(char* result_of_func) {
-	char expectation_add_element[] = "trylalaCv";
-	if (strcmp(expectation_add_element, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_add_element);
-		puts(result_of_func);
-	}
-}
-
-void testing_delete_element_memset(char* result_of_func) {
-	char expectation_delete_element_memset[] = "chtpopalo";
-	if (strcmp(expectation_delete_element_memset, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_delete_element_memset);
-		puts(result_of_func);
-	}
-}*/
-
 
 
 char* insert_func_variant(char* string1, char* string2, unsigned long size) {
@@ -84,6 +12,7 @@ char* insert_func_variant(char* string1, char* string2, unsigned long size) {
 	printf("Result of inserting string: ");
 	puts(result2);
     return result2;
+	free(result2);
 }
 
 char* insert_iter_variant(char* string1, char* string2, unsigned long size) {
@@ -107,7 +36,11 @@ char* insert_iter_variant(char* string1, char* string2, unsigned long size) {
 	}
 	printf("%s", "Result of inserting via iteration: ");
 	puts(result_string);
+	//char cp_res_str[50];
+	//strcpy(cp_res_str, result_string);
+	//free(result_string);
     return result_string;
+	
 }
 
 char* add_element_memcpy(char* sentence, char* tmp, int num_of_add_el) {
@@ -129,28 +62,30 @@ char* add_element_memcpy(char* sentence, char* tmp, int num_of_add_el) {
 	printf("Result memcpy: ");
 	printf("%s\n", res);
     return res;
+	free(res);
 }
 
 char* delete_elements(char* original, int pos_start, int pos_end) {
 	char* result_delete = (char*)malloc((strlen(original) - 5 + 1) * sizeof(char));
-
 	strncpy(result_delete, original, (unsigned long) pos_start);
 	strncpy(result_delete + pos_start, original + pos_end + 1, 3);
 	printf("Result of deleting elements: ");
 	puts(result_delete);
     return result_delete;
+	free(result_delete);
 }
 
-char* add_element(char* slova) {
-	char* n_slova = (char*)malloc(12 * sizeof(char));
+char* add_element(char* sentence) {
+	char* n_sentence = (char*)malloc(12 * sizeof(char));
 	for (int i = 0; i < 12; i++) {
-		n_slova[i] = 0;
+		n_sentence[i] = 0;
 	}
-	memcpy(n_slova, slova, strlen(slova) + 1);
-	memcpy(n_slova + strlen(slova), "Cv", 2);
+	memcpy(n_sentence, sentence, strlen(sentence) + 1);
+	memcpy(n_sentence + strlen(sentence), "Cv", 2);
 	printf("Result of adding element: ");
-	printf("%s\n", n_slova);
-    return n_slova;
+	printf("%s\n", n_sentence);
+    return n_sentence;
+	free(n_sentence);
 }
 
 char* delete_element_memset(char* sentence, unsigned long size_sentence, int size_del, int pos_del_start, int pos_del_end) {
@@ -171,5 +106,6 @@ char* delete_element_memset(char* sentence, unsigned long size_sentence, int siz
 
 	printf("Result of deleting via memset: %s\n", result_delete_memset);
     return result_delete_memset;
+	free(result_delete_memset);
 }
 

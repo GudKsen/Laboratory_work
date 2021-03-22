@@ -9,6 +9,7 @@ void testing_insert_func_variant(char* result_of_func) {
 		puts(expectation_func_variant);
 		puts(result_of_func);
 	}
+	free(result_of_func);
 }
 
 void testing_insert_iter_variant(char* result_of_func) {
@@ -21,6 +22,7 @@ void testing_insert_iter_variant(char* result_of_func) {
 		puts(expectation_iter_variant);
 		puts(result_of_func);
 	}
+	free(result_of_func);
 }
 
 void testing_add_element_memcpy(char* result_of_func) {
@@ -33,6 +35,7 @@ void testing_add_element_memcpy(char* result_of_func) {
 		puts(expectation_add_element_memcpy);
 		puts(result_of_func);
 	}
+	free(result_of_func);
 }
 
 void testing_delete_elements(char* result_of_func) {
@@ -45,6 +48,7 @@ void testing_delete_elements(char* result_of_func) {
 		puts(expectation_delete_element);
 		puts(result_of_func);
 	}
+	free(result_of_func);
 }
 
 void testing_add_element(char* result_of_func) {
@@ -57,6 +61,7 @@ void testing_add_element(char* result_of_func) {
 		puts(expectation_add_element);
 		puts(result_of_func);
 	}
+	free(result_of_func);
 }
 
 void testing_delete_element_memset(char* result_of_func) {
@@ -69,6 +74,7 @@ void testing_delete_element_memset(char* result_of_func) {
 		puts(expectation_delete_element_memset);
 		puts(result_of_func);
 	}
+	free(result_of_func);
 }
 
 int main(){
