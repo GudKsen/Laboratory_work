@@ -1,0 +1,2 @@
+1 cookie1 100 10 10 1 2 kysliy 
+0 cookie2 200 10 10 3 5 solodkiy
