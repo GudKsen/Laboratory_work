@@ -47,8 +47,8 @@ int main(){
 	struct Dessert cookie[2];
 	struct Dessert cake_bin[3];
 	int index_search = 1;
-	char name_file_read[] = "/home/ksen/new_reposit/lab15, 17/AllDesserts.txt";
-	char name_file_write[] = "/home/ksen/new_reposit/lab15, 17/Desserts.txt";
+	char name_file_read[] = "/home/ksen/new_reposit/lab15_17/AllDesserts.txt";
+	char name_file_write[] = "/home/ksen/new_reposit/lab15_17/Desserts.txt";
     struct Dessert cake_res[3];
     test_read_from_write_file(cake, Read_From_File(name_file_write, cake_res, 3)); //ok
     

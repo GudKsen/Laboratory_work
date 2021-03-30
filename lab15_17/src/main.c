@@ -8,8 +8,8 @@ int main() {
 	//struct Dessert cake_bin[3];
 	
 	int number_of_desserts = sizeof(cake) / sizeof(cake[0]);
-	char name_file_read[] = "/home/ksen/new_reposit/lab15, 17/AllDesserts.txt";
-	char name_file_write[] = "/home/ksen/new_reposit/lab15, 17/Desserts.txt";
+	char name_file_read[] = "/home/ksen/new_reposit/lab15_17/AllDesserts.txt";
+	char name_file_write[] = "/home/ksen/new_reposit/lab15_17/Desserts.txt";
 	Print_Dessert(cake, number_of_desserts);
 	Write_To_File(name_file_write, cake, number_of_desserts);
 	Read_From_File(name_file_read, cookie, 2);

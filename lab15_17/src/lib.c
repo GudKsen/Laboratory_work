@@ -8,7 +8,7 @@ int Write_To_Binary_File(struct Dessert desserts[], int number_of_desserts) {
 	// число записываемых байтов
 	int size = number_of_desserts * (int)sizeof(struct Dessert);
 
-	if ((myfile = fopen("/home/ksen/new_reposit/lab15, 17/Desserts.bin", "wb")) == NULL)
+	if ((myfile = fopen("/home/ksen/new_reposit/lab15_17/Desserts.bin", "wb")) == NULL)
 	{
 		perror("Error occured while opening file");
 		return 1;
@@ -40,7 +40,7 @@ int Read_From_Binary_File() {
 	// выделяем память для количества данных
 	int* pti = (int*)malloc((unsigned long)m);
 
-	if ((myfile = fopen("/home/ksen/new_reposit/lab15, 17/Desserts.bin", "r")) == NULL)
+	if ((myfile = fopen("/home/ksen/new_reposit/lab15_17/Desserts.bin", "r")) == NULL)
 	{
 		perror("Error occured while opening file");
 		return 1;
@@ -82,7 +82,7 @@ int Read_From_Binary_File() {
 }
 
 struct Dessert* copy_Search_by_Index_in_Binary_File(struct Dessert desserts[], int number_of_desserts, int index_search) {
-	FILE* myfile = fopen("/home/ksen/new_reposit/lab15, 17/Desserts.bin", "rb");
+	FILE* myfile = fopen("/home/ksen/new_reposit/lab15_17/Desserts.bin", "rb");
     struct Dessert* tmp = (struct Dessert*)malloc(sizeof(struct Dessert));
 	if (myfile != NULL) {
 		printf("Binary file opened success for reading!!!\n");
@@ -136,7 +136,7 @@ int Search_by_Index_in_Binary_File(int index_search) {
 	// выделяем память для количества данных
 	int* pti = (int*)malloc((unsigned long)m);
 
-	if ((myfile = fopen("/home/ksen/new_reposit/lab15, 17/Desserts.bin", "r")) == NULL)
+	if ((myfile = fopen("/home/ksen/new_reposit/lab15_17/Desserts.bin", "r")) == NULL)
 	{
 		perror("Error occured while opening file");
 		return 1;
@@ -186,7 +186,7 @@ struct Dessert* Copy_Search_by_Index_in_Binary_File(struct Dessert desserts[], i
 	// выделяем память для количества данных
 	int* pti = (int*)malloc((unsigned long)m);
 
-	if ((myfile = fopen("/home/ksen/new_reposit/lab15, 17/Desserts.bin", "r")) == NULL)
+	if ((myfile = fopen("/home/ksen/new_reposit/lab15_17/Desserts.bin", "r")) == NULL)
 	{
 		perror("Error occured while opening file");
 	}
@@ -233,8 +233,8 @@ struct Dessert* Copy_Search_by_Index_in_Binary_File(struct Dessert desserts[], i
 }
 
 void Sort_Name_Dessert(struct Dessert desserts[], int number_of_desserts) {
-	for (int i = 0; i < number_of_desserts; i++) {
-		for (int j = 0; j < number_of_desserts; j++) {
+	for (int i = number_of_desserts - 1; i >= 0; i--) {
+		for (int j = 0; j < i; j++) {
 			if (strcmp(desserts[j].name_dessert, desserts[j + 1].name_dessert) > 0) {
 				struct Dessert tmp = desserts[j];
 				desserts[j] = desserts[j + 1];
