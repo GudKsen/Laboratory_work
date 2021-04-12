@@ -43,7 +43,7 @@ char* insert_iter_variant(char* string1, char* string2, unsigned long size) {
 	
 }
 
-char* add_element_memcpy(char* sentence, char* tmp, int num_of_add_el) {
+/*char* add_element_memcpy(char* sentence, char* tmp, int num_of_add_el) {
 	int posit_add_start = 4;
 	int posit_add_end = 0;
 
@@ -63,7 +63,7 @@ char* add_element_memcpy(char* sentence, char* tmp, int num_of_add_el) {
 	printf("%s\n", res);
     return res;
 	free(res);
-}
+}*/
 
 char* delete_elements(char* original, int pos_start, int pos_end) {
 	char* result_delete = (char*)malloc((strlen(original) - 5 + 1) * sizeof(char));
@@ -88,7 +88,7 @@ char* add_element(char* sentence) {
 	free(n_sentence);
 }
 
-char* delete_element_memset(char* sentence, unsigned long size_sentence, int size_del, int pos_del_start, int pos_del_end) {
+/*char* delete_element_memset(char* sentence, unsigned long size_sentence, int size_del, int pos_del_start, int pos_del_end) {
 	char* result_delete_memset = (char*)malloc((unsigned long)size_del * sizeof(char));
 	for (int i = 0; i < size_del; i++) {
 		result_delete_memset[i] = 0;
@@ -107,5 +107,22 @@ char* delete_element_memset(char* sentence, unsigned long size_sentence, int siz
 	printf("Result of deleting via memset: %s\n", result_delete_memset);
     return result_delete_memset;
 	free(result_delete_memset);
+}*/
+
+void Print_NutritVal(struct NutritVal desserts) {
+	printf("kKal: %f\nBilky: %f\nZhyry: %f\nCarbohydrates: %f\n", desserts.kKal, desserts.bilky, desserts.zhyry, desserts.carbohydrates);
 }
 
+void Print_Dessert(struct Dessert desserts[], int number_of_desserts) {
+	for (int i = 0; i < number_of_desserts; i++) {
+		if (desserts[i].is_glucose) {
+			printf("Glucose: yes\n");
+		}
+		else {
+			printf("Glucose: no\n");
+		}
+		printf("Name: %s\nWeight: %f\nTaste: %s\n", desserts[i].name_dessert, desserts[i].weight, desserts[i].taste);
+		Print_NutritVal(desserts[i].nutrit);
+		printf("\n--------------------------------\n");
+	}
+}

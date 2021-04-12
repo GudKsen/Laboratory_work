@@ -25,18 +25,6 @@ void testing_insert_iter_variant(char* result_of_func) {
 	free(result_of_func);
 }
 
-void testing_add_element_memcpy(char* result_of_func) {
-	char expectation_add_element_memcpy[] = "chtohelo popalo";
-	if (strcmp(expectation_add_element_memcpy, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_add_element_memcpy);
-		puts(result_of_func);
-	}
-	free(result_of_func);
-}
 
 void testing_delete_elements(char* result_of_func) {
 	char expectation_delete_element[] = "abrara";
@@ -64,18 +52,7 @@ void testing_add_element(char* result_of_func) {
 	free(result_of_func);
 }
 
-void testing_delete_element_memset(char* result_of_func) {
-	char expectation_delete_element_memset[] = "chtpopalo";
-	if (strcmp(expectation_delete_element_memset, result_of_func) == 0) {
-		printf("Expectation with the result of the function coincided.\n");
-	}
-	else {
-		printf("Expectation with the result of the function not coincided.\n");
-		puts(expectation_delete_element_memset);
-		puts(result_of_func);
-	}
-	free(result_of_func);
-}
+
 
 int main(){
     //insert
@@ -101,18 +78,9 @@ int main(){
 	testing_add_element(add_element(slova));
     printf("\n\n");
 
-	//memcpy
-	char sentence[] = "chto popalo";
-	char tmp[] = "helo";
-	int num_of_add_el = (int) strlen(tmp);
-	testing_add_element_memcpy(add_element_memcpy(sentence, tmp, num_of_add_el));
-    printf("\n\n");
+	
 
-	//memset
-	unsigned long size_sentence = strlen(sentence);
-	int pos_del_start = 2, pos_del_end = 5;
-	int size_del = (int)strlen(sentence) - (pos_del_end - pos_del_start) + 1;
-	testing_delete_element_memset(delete_element_memset(sentence, size_sentence, size_del, pos_del_start, pos_del_end));
+	
     printf("\n\n");
     return 0;
 }

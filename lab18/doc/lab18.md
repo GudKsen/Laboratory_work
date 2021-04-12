@@ -15,13 +15,17 @@
 
 * * Функція `main()`: викликає функції `insert_func_variant`, `insert_iter_variant`, `add_element_memcpy`, `delete_elements`, `add_element`, `delete_element_memset`.
 
+![](assets/main18.png)
 
+* * Функція `insert_func_variant`: 
 
-* * Функція : 
+![](assets/insert_str_func.png)
 
-
-* * Функція ``: 
-
+* * Функція `insert_iter_variant`: 
+* * Функція `add_element_memcpy`:
+* * Функція `delete_elements`:
+* * Функція `add_element`:
+* * Функція `delete_element_memset`:
 
 
 * *Структура програми*:
