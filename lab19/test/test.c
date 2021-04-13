@@ -1,6 +1,6 @@
 #include "list.h"
 #include "data.h"
-
+#define dVIEW_FUNCTION printf("\n%s\n", __PRETTY_FUNCTION__);
 struct Dessert* Search_Weight1(struct List* ls, float weight) {
 	struct List* tmp = list_new();
 	struct Dessert* t = (struct Dessert*)malloc(sizeof(struct Dessert));
@@ -23,9 +23,11 @@ void Test_Insert(struct Dessert* result) {
 	if (memcmp(expectation, result, 1) == 0) {
 		printf("expectation insert == result\n");
 	}
+	dVIEW_FUNCTION
 }
 
 void Test_Del(struct Dessert* result) {
+	dVIEW_FUNCTION
 	struct Dessert* exp = (struct Dessert*)malloc(sizeof(struct Dessert));
 	char* name = (char*)malloc(20 * sizeof(char));
 	strcpy(name, "cheescake");
@@ -41,6 +43,7 @@ void Test_Del(struct Dessert* result) {
 }
 
 void Test_Search_Weight(struct Dessert* result) {
+	dVIEW_FUNCTION
 	struct Dessert* exp = (struct Dessert*)malloc(sizeof(struct Dessert));
 	char* name_desserts = (char*)malloc(20 * sizeof(char));
 	char* taste_dessert = (char*)malloc(20 * sizeof(char));
@@ -56,6 +59,7 @@ void Test_Search_Weight(struct Dessert* result) {
 }
 
 void Test_Sort(struct List* ls, struct Dessert* result) {
+	dVIEW_FUNCTION
 	struct List* expectation = list_new();
 	struct Dessert* exp = (struct Dessert*)malloc(3 * sizeof(struct Dessert));
 	char* exp_name = (char*)malloc(20 * sizeof(char));
@@ -92,6 +96,7 @@ void Test_Sort(struct List* ls, struct Dessert* result) {
 	free(name_desserts);
 	free(exp_taste);
 	free(exp_name);
+	
 } 
 
 int main() {
@@ -117,7 +122,11 @@ int main() {
 	struct Dessert* del_test = (struct Dessert*)malloc(sizeof(struct Dessert));
 	del_test = ls->head;
 	del_test->next = ls->head->next;
+	long start_time = currentTimeMillis();
 	Test_Del(del_test);
+	long end_time = currentTimeMillis();
+	printf("\nSpent time: %ld sec\n", (end_time - start_time)/1000);
+
     list_add_end(ls, 1, name_desserts, 400, 200, 35, 27, 10, taste_add);
     char name_file[] = "/home/ksen/new_reposit/lab19/Desserts_list.txt";
 
@@ -125,8 +134,10 @@ int main() {
 	Read_From_File(name_file, ls);
 
 	Search_Weight1(ls, 400);
+	start_time = currentTimeMillis();
 	Test_Search_Weight(Search_Weight1(ls, 400));
-	
+	end_time = currentTimeMillis();
+	printf("\nSpent time: %ld sec\n", (end_time - start_time)/1000);
     char* name_insert = (char*)malloc(20 * sizeof(char));
 	strcpy(name_insert, "fruit cake");
 	char* taste_insert = (char*)malloc(20 * sizeof(char));
@@ -138,7 +149,15 @@ int main() {
 	temp = ls->head;
 	temp->next = ls->head->next;
 	temp->next->next = ls->tail;
+
+
+	start_time = currentTimeMillis();
 	Test_Sort(ls, temp);
+	end_time = currentTimeMillis();
+	printf("\nSpent time: %ld sec\n", (end_time - start_time)/1000);
+	printf("\nDate: %s\n", __DATE__);
+	printf("Time: %s\n", __TIME__);
+	 
     free(taste_insert);
 	free(name_insert);
 	free(name_add);

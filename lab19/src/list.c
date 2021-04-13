@@ -10,7 +10,7 @@ struct List* list_new()
 }
 
 void Show_List(struct List* ls) {
-	for (struct Dessert* node = ls->head; node != NULL; node = node->next)
+	for (struct Dessert* node = ls->tail; node != NULL; node = node->prev)
 		printf("\t%d %10s %f %f %f %f %f %s\n", node->is_glucose, node->name_dessert, node->weight, node->nutrit.kKal, node->nutrit.bilky, node->nutrit.zhyry, node->nutrit.carbohydrates, node->taste);
 	printf("\n");
 }
@@ -129,7 +129,7 @@ int compare(struct Dessert* a, struct Dessert* b) {
 	else
 		return -1;
 }
-//struct List* sort_ptr(struct List* ls, int(*compare)(struct Dessert*, struct Dessert*));
+
 struct List* sort_ptr(struct List* ls, int(*compare)(struct Dessert*, struct Dessert*))
 {
 	struct Dessert* set = ls->tail;
@@ -208,7 +208,11 @@ struct Dessert* list_new_node(int a, char* name, float weight, float kkal, float
 	return node;
 }
 
-
+long currentTimeMillis() {  
+	struct timeval time;   
+	gettimeofday(&time, NULL); //note: how c functions returns structures !   
+	return time.tv_sec * 1000 + time.tv_usec / 1000;
+}
 
 struct Dessert* list_add_begin(struct List* ls, int a, char* name, float weight, float kkal, float proteins, float fats, float carbohydrates, char* taste)
 {

@@ -5,7 +5,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+//#define dVIEW_FUNCTION printf("%s\n", __PRETTY_FUNCTION__);
 
+long currentTimeMillis();
 struct List* list_new();
 void Show_List(struct List* ls);
 int List_Delete_El(struct List* ls, int index);

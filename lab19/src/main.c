@@ -1,23 +1,18 @@
 #include "list.h"
 #include "data.h"
 
+//#define dVIEW_FUNCTION printf("%s\n", __PRETTY_FUNCTION__);
+
+
+
 #define dVIEW_FUNCTION printf("%s\n", __PRETTY_FUNCTION__);
-
-
-/*long currentTimeMillis() {  
-	struct timeval time;   
-	gettimeofday(&time, NULL); //note: how c functions returns structures !   
-	return time.tv_sec * 1000 + time.tv_usec / 1000;
-}*/
-
 //#define DEBUG 1
 
 
 int main() {
-	//long start_time = currentTimeMillis();
-    int n;
+	long start_time = currentTimeMillis();
 	printf("Please enter the number of elements in list: ");
-	scanf("%d", &n);
+
 	struct List* ls = (struct List*)malloc(sizeof(struct List));
     ls->head = NULL;
     ls->tail = NULL;
@@ -57,26 +52,77 @@ int main() {
     sort_ptr(ls, compare);
     printf("List after sorting by weight:\n");
     Show_List(ls);
+
+	int number_of_elements = 0;
+	printf("Enter the number of elements: ");
+	scanf("%d", &number_of_elements);
+	struct List* list_ = (struct List*)malloc(number_of_elements * sizeof(struct List));
+    list_->head = NULL;
+    list_->tail = NULL;
+	int choice = 1;
+	int pos;
+
+	while (choice !=  0) {
+		printf("0 - exit\n1 - print list\n2 - add an element to begin\n3 - add an element to end\n4 - insert element\n5 - delete element\n6 - sorting by weight\n\n");
+	scanf("%d", &choice);
+	
+	switch (choice)
+	{
+	case 1:
+		Show_List(list_);
+		break;
+	case 2:
+		list_add_begin(list_, 1, name_desserts, 500.0, 100.0, 20.0, 30.0, 10.0, taste_desserts);
+		break;
+	case 3:
+		list_add_end(list_, 0, name_add, 200, 100, 10, 10, 10, taste_add);
+		break;
+	case 4:
+		printf("Enter the position for inserting: ");
+		scanf("%d", &pos);
+		list_insert(list_, 1, pos, name_insert, 500, 152, 1, 14, 15, taste_insert);
+		break;
+	case 5:
+		printf("Enter the element's position for deleting: ");
+		scanf("%d", &pos);
+		List_Delete_El(list_, 0);
+		break;
+	case 6:
+		sort_ptr(list_, compare);
+		break;
+	default:
+		break;
+	}
+	}
     free(taste_insert);
 	free(name_insert);
 	free(name_add);
 	free(taste_add);
 	free(taste_desserts);
 	free(name_desserts);
-   
+    Clear_List(list_);
+	free(list_);
 	Clear_List(ls);
     free(ls);
 
-	//long end_time = currentTimeMillis();
+	long end_time = currentTimeMillis();
 	/*#ifdef DEBUG 
 	#define PRINT printf("Spent time: %d sec\n", (end_time - start_time)/1000);
 	#define PRINTD printf("\nDate: %s\n", __DATE__);
 	#define PRINTT printf("Time: %s\n", __TIME__);
 	#define dVIEW_FUNCTION
 	#endif*/
+
+	#ifdef DEBUG 
+	 printf("Spent time: %ld sec\n", (end_time - start_time)/1000);
+	 printf("\nDate: %s\n", __DATE__);
+	 printf("Time: %s\n", __TIME__);
+	 dVIEW_FUNCTION
+	#endif
+
 	//printf("Spent time: %ld sec\n", (end_time - start_time)/1000);
-	printf("\nDate: %s\n", __DATE__);
-	printf("Time: %s\n", __TIME__);
-	dVIEW_FUNCTION
+	//printf("\nDate: %s\n", __DATE__);
+	//printf("Time: %s\n", __TIME__);
+	//dVIEW_FUNCTION
     return 0;
 }

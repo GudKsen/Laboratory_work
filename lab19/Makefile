@@ -1,5 +1,5 @@
 CC = gcc
-LAB_OPTS = -I./src src/list.c
+LAB_OPTS = -I./src src/list.c -DDEBUG
 C_OPTS = -std=gnu11 -g -Wall -Wextra -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -Wno-unused-variable -Werror=vla $(LAB_OPTS)
 
 clean:
@@ -7,6 +7,8 @@ clean:
 prep:
 	mkdir dist
 compile: main.bin test.bin
+	
+
 
 main.bin: src/main.c
 	$(CC) $(C_OPTS) $< -o ./dist/$@
