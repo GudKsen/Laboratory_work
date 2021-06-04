@@ -9,7 +9,7 @@ public:
 
 	virtual ~Array_Desserts();
 
-	void Add_Dessert(Dessert* baka);
+	void Add_Dessert(Dessert* dessert);
 
 	Dessert* Get_Dessert(int index) const;
 
