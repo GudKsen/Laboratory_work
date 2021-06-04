@@ -1,12 +1,11 @@
 #include "list.h"
 #include "data.h"
 
-//#define dVIEW_FUNCTION printf("%s\n", __PRETTY_FUNCTION__);
 
 
 
 #define dVIEW_FUNCTION printf("%s\n", __PRETTY_FUNCTION__);
-//#define DEBUG 1
+
 
 
 int main() {
@@ -38,6 +37,9 @@ int main() {
     list_add_end(ls, 1, name_desserts, 400, 200, 35, 27, 10, taste_add);
     char name_file[] = "/home/ksen/new_reposit/lab19/Desserts_list.txt";
 	Write_To_File(name_file, ls);
+	struct List* l = (struct List*)malloc(sizeof(struct List));
+    l->head = NULL;
+    l->tail = NULL;
 	Read_From_File(name_file, ls);
 
 	Search_Weight(ls, 400);
@@ -106,12 +108,6 @@ int main() {
     free(ls);
 
 	long end_time = currentTimeMillis();
-	/*#ifdef DEBUG 
-	#define PRINT printf("Spent time: %d sec\n", (end_time - start_time)/1000);
-	#define PRINTD printf("\nDate: %s\n", __DATE__);
-	#define PRINTT printf("Time: %s\n", __TIME__);
-	#define dVIEW_FUNCTION
-	#endif*/
 
 	#ifdef DEBUG 
 	 printf("Spent time: %ld sec\n", (end_time - start_time)/1000);
@@ -120,9 +116,5 @@ int main() {
 	 dVIEW_FUNCTION
 	#endif
 
-	//printf("Spent time: %ld sec\n", (end_time - start_time)/1000);
-	//printf("\nDate: %s\n", __DATE__);
-	//printf("Time: %s\n", __TIME__);
-	//dVIEW_FUNCTION
     return 0;
 }

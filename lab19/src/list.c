@@ -77,12 +77,49 @@ void Read_From_File(char* name_file, struct List* ls) {
 			printf("\t%d %s %.2f %.2f %.2f %.2f %.2f %s\n", i->is_glucose, i->name_dessert, i->weight, i->nutrit.kKal, i->nutrit.bilky, i->nutrit.zhyry, i->nutrit.carbohydrates, i->taste);
 
 		}
+		
 	}
 	else {
 		printf("File cannot be reading");
 	}
 	fclose(myfile);
 }
+
+/*void read(char* name_file, struct List* ls)
+{
+	
+   FILE* myfile = fopen(name_file, "r");
+    while(myfile != NULL)
+    {
+        struct List* listik = (struct List*)malloc(sizeof(struct List));
+        if(ls.head == NULL)
+        {
+            listik->prev = NULL;
+            listik->next = NULL;
+            ls.head = listik;
+            ls.tail = listik;
+        }
+        else
+        {
+            ls.tail->next = listik;
+            listik->prev = ls.head;
+            listik->next = NULL;
+            ls.tail = listik;
+        }
+
+        fgets(fin, listik->data.term);
+        fgets(fin, listik->data.title);
+        fgets(fin, listik->data.description);
+        fgets(fin, listik->data.grade);
+		fgets(listik->)
+        ls.length++;
+
+        char* blankline;
+        if(!getline(fin, blankline))
+            break;
+    }
+
+}*/
 
 void Search_isGlucose(struct List* ls, int glucose) {
 	struct List* tmp = list_new();
