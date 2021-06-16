@@ -10,19 +10,16 @@ using std::ostream;
 
 template <class T>
 class Array_Desserts {
-	//friend istream& operator>> (istream&, Array_Desserts&); // перегруженный оператор ввода
-	//template <class T> 
-	friend ostream& operator<< (ostream& output, const Array_Desserts<T>& obj) // перегруженный оператор вывода
+	
+	friend ostream& operator<< (ostream& output, const Array_Desserts<T>& obj) 
 	{
 		for (size_t ix = 0; ix < obj.size; ix++)
 		{
 			output << *obj.ptr[ix];
 			output << std::endl;
 		}
-
-		output << std::endl; // перенос маркера на новую строку
-
-		return output; // позволяет множественный вывод, типа cout << x << y << z << ...
+		output << std::endl; 
+		return output; 
 	}
 
 private:

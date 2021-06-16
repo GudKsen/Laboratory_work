@@ -1,4 +1,4 @@
-#include <iostream>
+//#include <iostream>
 #include "class_array.h"
 
 void test_add_el() {

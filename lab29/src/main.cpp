@@ -12,7 +12,10 @@ int main() {
 
 	Array_Desserts<Dessert> muarray3;
 	muarray3.set_information_to_array();
+	std::cout << muarray3;
+	std::cout << std::endl << std::endl;
 	muarray3 += smth_for_inserting;
+	std::cout << "Add element:" << std::endl;
 	std::cout << muarray3;
 	muarray3.searching_by_min_weight_and_taste();
 
@@ -24,18 +27,7 @@ int main() {
 
 
 	std::cout << std::endl;
-	std::string filename = "C:\\Users\\Tb\\AllDesserts.txt";
-	std::string filename1 = "C:\\Users\\Tb\\All_Desserts.txt";
-	/*Array_Desserts<Dessert> marray;
-	marray.read_from_file(filename);
-	marray.showarray();
-
-	Array_Desserts<Dessert> marr;
-	marr <= filename;
-	std::cout << marr;
-	std::cout << std::endl;
-	std::cout << marr;
-	std::cout << std::endl;*/
+	
 
 
 	jelly_dessert hhh("jelly", 100);
