@@ -42,10 +42,10 @@ int main() {
 	
 
 	std::cout << std::endl;
-	std::string filename = "C:\\Users\\Tb\\AllDesserts.txt";
+	std::string filename = "/home/ksen/new_reposit/lab25/AllDesserts.txt";
 	std::string filename1 = "C:\\Users\\Tb\\All_Desserts.txt";
-	Array_Desserts marray;
-	marray.read_from_file(filename);
+	//Array_Desserts marray;
+	//marray.read_from_file(filename);
 	
 	std::cout << std::endl;
 	Array_Desserts marr;
@@ -54,8 +54,11 @@ int main() {
 	std::cout << marr;
 
 	Array_Desserts arr3;
+	std::cout << "Input information to array of desserts(3 desserts):" << std::endl;
+	std::cout << "Array's name: arr3" << std::endl;
 	std::cin >> arr3;
 	std::cout << std::endl;
+	std::cout << "Output information from arr3:" << std::endl;
 	std::cout << arr3;
 
 	
