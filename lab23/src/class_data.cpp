@@ -33,3 +33,36 @@ Dessert::~Dessert() {
 Dessert::Dessert(const Dessert& copy) :IsGlucose(copy.IsGlucose), Weight(copy.Weight) {
 	
 }
+
+double Dessert::getter_weight() {
+		return Weight;
+	}
+
+double Dessert::getter_carbohydrates() {
+		return Nutrit.Carbohydrates;
+	}
+
+	bool Dessert::getter_isglucose() {
+		return IsGlucose;
+	}
+
+	char* Dessert::getter_taste() {
+		return Taste;
+	}
+
+bool Dessert::operator != (const Dessert& right) {
+		if (IsGlucose == right.IsGlucose &&
+			NameDessert == right.NameDessert &&
+			(Weight >= right.Weight && Weight <= right.Weight) &&
+			(Nutrit.Kkal >= right.Nutrit.Kkal && Nutrit.Kkal <= Nutrit.Kkal) &&
+			(Nutrit.Proteins >= right.Nutrit.Proteins && Nutrit.Proteins <= right.Nutrit.Proteins) &&
+			(Nutrit.Fats >= right.Nutrit.Fats && Nutrit.Fats <= right.Nutrit.Fats) &&
+			(Nutrit.Carbohydrates >= right.Nutrit.Carbohydrates && Nutrit.Carbohydrates <= right.Nutrit.Carbohydrates) &&
+			Taste == right.Taste) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
+	}

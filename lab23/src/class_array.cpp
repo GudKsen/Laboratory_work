@@ -14,6 +14,17 @@ Array_Desserts::Array_Desserts() {
 	}
 }
 
+bool Array_Desserts::operator == (const Array_Desserts& right) {
+		if (size != right.size)
+			return false; // массивы с разным количеством элементов
+
+		for (size_t ix = 0; ix < size; ix++)
+			if ((ptr[ix] != right.ptr[ix]) == false)
+				return false; // массивы не равны
+
+		return true; // массивы равны
+	}
+
 Array_Desserts::Array_Desserts(size_t size_arr) {
 	size = size_arr;
 	ptr = new Dessert * [size];

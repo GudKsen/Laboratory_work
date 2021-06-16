@@ -11,11 +11,14 @@ int main() {
 	myarray.showarray();
 
 	std::cout << std::endl;
+	std::cout << "--------------set element on 2nd position--------------" << std::endl;
 	myarray.setarray(1, false, name, 200, 100, 20, 30, 35, taste); //88 bytes
 	myarray.showarray();
 
+	std::cout << std::endl;
+	std::cout << "--------------set element on 3rd position--------------" << std::endl;
 	myarray.setarray(2, true, name, 300, 200, 30, 50, 60, taste);
-	std::cout << std::endl << std::endl;
+	//std::cout << std::endl << std::endl;
 	myarray.showarray();
 	std::cout << std::endl << std::endl;
 
