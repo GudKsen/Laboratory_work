@@ -20,7 +20,6 @@ int main() {
 	std::string array4 = "0 cookie 100 20 30 10 10 solodkiy";
 	Array_Desserts myarra4;
 	myarra4[0]->from_string(array4);  //read information from string
-	//std::cout << myarra4;
 	myarra4[0]->to_string();
 
 
@@ -44,14 +43,16 @@ int main() {
 	Array_Bake barr(3);
 	barr.setbake();
 	barr.print_bake();
-	//Array_Bake bake_for_adding(300, true);
 	bake *bake_for_adding = new bake;
 	bake_for_adding->setterbake(300, true);
+	std::cout << std::endl << std::endl;
+	std::cout << "Add bake on 1st position" << std::endl;
 	barr.add_bake(1, bake_for_adding);
-	std::cout << std::endl << std::endl;
 	barr.print_bake();
+	std::cout << std::endl << std::endl;
+	std::cout << "Delete bake from 2nd position" << std::endl;
 	barr.delete_bake(2);
-	std::cout << std::endl << std::endl;
 	barr.print_bake();
+	std::cout << std::endl << std::endl;
 	return 0;
 }
