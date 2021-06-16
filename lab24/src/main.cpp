@@ -19,6 +19,7 @@ int main() {
 	std::string array4 = "0 cookie 100 20 30 10 10 solodkiy";
 	Array_Desserts myarra4;
 	myarra4[0]->from_string(array4);  //read information from string
+	std::cout << "Reading from string:" << std::endl;
 	std::cout << myarra4;
 	myarra4[0]->to_string();
 
